@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Women History Quiz</string>
+    <string name="submit_quiz">Submit</string>
+    <string name="title_activity_questions">QuestionsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="go_to_quiz">Go</string>
+    <string name="fill_in_blank">Fill in the blank.</string>
+    <string name="question1">Who said, \"No one can make you feel insecure without your consent\"?</string>
+    <string name="question2">True or false: Women were given the right to vote in the US in 1919.</string>
+    <string name="question3">___________ conducted pioneer research in radiation, the first woman to win a Nobel Prize and the first person to win two Nobel Prizes</string>
+    <string name="question4">She was the first female astronaut in the US.</string>
+    <string name="question5">She was the first computer programmer.</string>
+    <string name="question6">Select the following whom where or are Supreme Court Justices.</string>
+    <string name="isTrue">True</string>
+    <string name="isFalse">False</string>
+    <string name="out_of">out of 6</string>
+
+    <!--Answers -->
+    <string name="roosevelt">Eleanor Roosevelt</string>
+    <string name="angelou">Maya Angelou</string>
+    <string name="keller">Helen Keller</string>
+    <string name="meitner">Lise Meitner</string>
+    <string name="curie">Marie Curie</string>
+    <string name="franklin">Rosalind Franklin</string>
+    <string name="ride">Sally Kristen Ride</string>
+    <string name="tereshkova">Valentina Tereshkova</string>
+    <string name="jemison">Mae Carol Jemison</string>
+    <string name="lovelace">Ada Lovelace</string>
+    <string name="hopper">Grace Hopper</string>
+    <string name="conway">Lynn Conway</string>
+    <string name="sotomayor">Sonia Sotomayor</string>
+    <string name="ginsburg">Ruth Bader Ginsburg</string>
+    <string name="connor">Sandra Day O\'Connor</string>
+
+    <string name="main_menu">Main Menu</string>
+    <string name="try_again">Try Again</string>
+
+    <string name="explanation_one">Eleanor Roosevelt was a multifaceted woman. She was a first lady and wife to Franklin Roosevelt. She was also a politician, diplomat
+    and an author. Her quote  \"No one can make you feel insecure without your consent\" is one of her most famous quotes.</string>
+    <string name="explanation_two">The United States granted women the right to vote in the year 1920.</string>
+    <string name="explanation_three">Marie Curie</string>
+    <string name="explanation_four">Sally Kristen Ride became the first American woman to fly in space. She worked for NASA from 1977 to 1987. Afterwards, she
+    taught at the University of California. She looked for ways to educated girls about science and mathematics up until her passing in 2012.</string>
+    <string name="explanation_five">Ada Lovelace is sometimes called the "first computer scientist" after she wrote a report on Babbage\'s machine.
+    She said that the device could be used to handle letters, symbols as well as repeat a series of instructions(which is known as looping).
+    </string>
+    <string name="explanation_six">Ginsburg, O\'Connor and Sotomayor are/were Supreme Court judges. O\'Connor was the first woman to hold this title and took the oath of office in 1981 and
+        retired in 2006. Ginsburg was appointed a Supreme Court Justice by Bill Clinton in 1993.. Sotomayor has been serving since 2009 and is the first Supreme Court Justice to be Hispanic and Latina.
+    </string>
+
+    <string name="blank">Fill in blank...</string>
+</resources>
