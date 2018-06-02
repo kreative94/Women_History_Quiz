@@ -12,31 +12,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
     int theScore = 0;
     int baseScore = 0;
-    Button submitQuizButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //the button to submit the quiz
-        submitQuizButton = findViewById(R.id.submit_quiz);
+        final Button submitQuizButton = findViewById(R.id.submit_quiz_button);
 
-        //Will show the quiz results
         submitQuizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //The Correct Answers
-                RadioButton correctAnswer1 = findViewById(R.id.roosevelt), correctAnswer2 = findViewById(R.id.is_false),
-                        correctAnswer4 = findViewById(R.id.ride), correctAnswer5 = findViewById(R.id.lovelace);
+                RadioButton correctAnswer1 = findViewById(R.id.question_1_answer_3_rb), correctAnswer2 = findViewById(R.id.question_2_answer_2_rb),
+                        correctAnswer4 = findViewById(R.id.question_4_answer_2_rb), correctAnswer5 = findViewById(R.id.question_5_answer_1_rb);
 
-                CheckBox correctAnswer6One = findViewById(R.id.ginsburg), correctAnswer6Two = findViewById(R.id.sotomayor),
-                        correctAnswer6Three = findViewById(R.id.connor);
+                CheckBox correctAnswer6One = findViewById(R.id.question_6_answer_1_cb), correctAnswer6Two = findViewById(R.id.question_6_answer_2_cb),
+                        correctAnswer6Three = findViewById(R.id.question_6_answer_3_cb);
 
-                EditText correctAnswer3 = findViewById(R.id.curie);
+                EditText correctAnswer3 = findViewById(R.id.question_3_answer_et);
 
                 //Answer One
                 correctAnswer1.setTextColor(Color.parseColor("#20A428"));
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean isCorrect6PtTwo = correctAnswer6Two.isChecked();
                 boolean isCorrect6PtThree = correctAnswer6Three.isChecked();
 
-                explainQuestion();
+                explainsTheQuestions();
                 theWrongAnswers();
 
                 //Tally score from selected answers and show correct Answers
@@ -66,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast totalScore = Toast.makeText(MainActivity.this, "You scored " + theScore + " out of 6", Toast.LENGTH_LONG);
                 totalScore.show();
 
-                //Disable submitQuizButton
                 submitQuizButton.setEnabled(false);
+
             }
         });
     }
@@ -132,95 +128,47 @@ public class MainActivity extends AppCompatActivity {
     //Will display the wrong answers the user selected when they submit the quiz
 
     /**
-     * @param isWrong          is the boolean to check if user selected the wrong answer
-     * @param wrongAnswerRadio is the radio button for wrong answer
+     * @param wrongAnswerRb is the radio button for wrong answer that the user selects
      */
-    public void wrongAnswer(boolean isWrong, RadioButton wrongAnswerRadio) {
-        isWrong = wrongAnswerRadio.isChecked();
+    public void wrongAnswer(RadioButton wrongAnswerRb) {
+        boolean isWrong = wrongAnswerRb.isChecked();
 
         if (isWrong) {
-            wrongAnswerRadio.setTextColor(Color.parseColor("#AE0C2F"));
+            wrongAnswerRb.setTextColor(Color.parseColor("#AE0C2F"));
         }
     }
-    //The incorrect answers in the
 
     public void theWrongAnswers() {
         //The Wrong Answers
-        RadioButton wrongAnsOne = findViewById(R.id.keller), wrongAnsTwo = findViewById(R.id.angelou),
-                wrongAnsThree = findViewById(R.id.is_true), wrongAnsFour = findViewById(R.id.tereshkova),
-                wrongAnsFive = findViewById(R.id.jemison), wrongAnsSix = findViewById(R.id.hopper),
-                wrongAnsSeven = findViewById(R.id.conway);
+        RadioButton wrongAnsOneRb = findViewById(R.id.question_1_answer_1_rb), wrongAnsTwoRb = findViewById(R.id.question_1_answer_2_rb),
+                wrongAnsThreeRb = findViewById(R.id.question_2_answer_1_rb), wrongAnsFourRb = findViewById(R.id.question_4_answer_1_rb),
+                wrongAnsFiveRb = findViewById(R.id.question_4_answer_3_rb), wrongAnsSixRb = findViewById(R.id.question_5_answer_2_rb),
+                wrongAnsSevenRb = findViewById(R.id.question_5_answer_3_rb);
 
         //Boolean to the wrong answer views
-        boolean isWrongOne = wrongAnsOne.isChecked();
-        boolean isWrongTwo = wrongAnsTwo.isChecked();
-        boolean isWrongThree = wrongAnsThree.isChecked();
-        boolean isWrongFour = wrongAnsFour.isChecked();
-        boolean isWrongFive = wrongAnsFive.isChecked();
-        boolean isWrongSix = wrongAnsSix.isChecked();
-        boolean isWrongSeven = wrongAnsSeven.isChecked();
-
-        wrongAnswer(isWrongOne, wrongAnsOne);
-        wrongAnswer(isWrongTwo, wrongAnsTwo);
-        wrongAnswer(isWrongThree, wrongAnsThree);
-        wrongAnswer(isWrongFour, wrongAnsFour);
-        wrongAnswer(isWrongFive, wrongAnsFive);
-        wrongAnswer(isWrongSix, wrongAnsSix);
-        wrongAnswer(isWrongSeven, wrongAnsSeven);
+        wrongAnswer(wrongAnsOneRb);
+        wrongAnswer(wrongAnsTwoRb);
+        wrongAnswer(wrongAnsThreeRb);
+        wrongAnswer(wrongAnsFourRb);
+        wrongAnswer(wrongAnsFiveRb);
+        wrongAnswer(wrongAnsSixRb);
+        wrongAnswer(wrongAnsSevenRb);
     }
 
     //Explains the correct answer to the user
-    public void explainQuestion() {
-        TextView explainOne = findViewById(R.id.explain_one);
-        TextView explainTwo = findViewById(R.id.explain_two);
-        TextView explainThree = findViewById(R.id.explain_three);
-        TextView explainFour = findViewById(R.id.explain_four);
-        TextView explainFive = findViewById(R.id.explain_five);
-        TextView explainSix = findViewById(R.id.explain_six);
+    public void explainsTheQuestions() {
+        TextView explainQuestionOne = findViewById(R.id.explain_question_1);
+        TextView explainQuestionTwo = findViewById(R.id.explain_question_2);
+        TextView explainQuestionThree = findViewById(R.id.explain_question_3);
+        TextView explainQuestionFour = findViewById(R.id.explain_question_4);
+        TextView explainQuestionFive = findViewById(R.id.explain_question_5);
+        TextView explainQuestionSix = findViewById(R.id.explain_question_6);
 
-        explainOne.setText(R.string.explanation_one);
-        explainTwo.setText(R.string.explanation_two);
-        explainThree.setText(R.string.explanation_three);
-        explainFour.setText(R.string.explanation_four);
-        explainFive.setText(R.string.explanation_five);
-        explainSix.setText(R.string.explanation_six);
+        explainQuestionOne.setText(R.string.explanation_one);
+        explainQuestionTwo.setText(R.string.explanation_two);
+        explainQuestionThree.setText(R.string.explanation_three);
+        explainQuestionFour.setText(R.string.explanation_four);
+        explainQuestionFive.setText(R.string.explanation_five);
+        explainQuestionSix.setText(R.string.explanation_six);
     }
-
-    //Resets the Quiz
-   /* public void resetQuiz() {
-        theScore = 0;
-        baseScore = 0;
-        tryAgainButton = new Button(this);
-        tryAgainButton.setText(R.string.try_again);
-        tryAgainButton.setEnabled(false);
-        clearAnswers();
-    }*/
-
-   /*
-    //un checks all questions
-    public void clearAnswers() {
-        //Clear all wrong answers selected
-        wrongAnsOne.setChecked(false);
-        wrongAnsTwo.setChecked(false);
-        wrongAnsThree.isChecked();
-        wrongAnsFour.setChecked(false);
-        wrongAnsFive.setChecked(false);
-        wrongAnsSix.setChecked(false);
-        wrongAnsSeven.setChecked(false);
-
-        //Clear all correct answers
-
-        //Unhighlight correct answers. From green to black
-        //Answer One
-        correctAnswer1.setTextColor(Color.parseColor("#20A428"));
-        //Answer Two
-        correctAnswer2.setTextColor(Color.parseColor("#20A428"));
-        //Answer Four
-        correctAnswer4.setTextColor(Color.parseColor("#20A428"));
-        //Answer 5
-        correctAnswer5.setTextColor(Color.parseColor("#20A428"));
-
-
-    }
-    */
 }
